@@ -1,0 +1,96 @@
+a {
+    text-decoration: none !important;
+    -webkit-text-decoration-line: none;
+            text-decoration-line: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .App__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 40px;
+  }
+  
+  .App__nav .logo__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 130px;
+    border-radius: 50%;
+  }
+  
+  .App__nav .nav__bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .App__nav li {
+    position: relative;
+    list-style: none;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .nav__link {
+    text-decoration: underline;
+  }
+  
+  .nav__link li {
+    color: peru;
+    font-size: 22px;
+    font-family: bold;
+  }
+  
+  @media (max-width: 700px) {
+    .App__nav {
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+    }
+    .App__nav .logo {
+      padding: 0;
+      margin: 0;
+      width: 90px;
+    }
+    .nav__bar {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: normal !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important;
+      -webkit-box-align: start !important;
+          -ms-flex-align: start !important;
+              align-items: flex-start !important;
+      width: 100;
+    }
+  }
