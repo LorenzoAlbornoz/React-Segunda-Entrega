@@ -1,19 +1,20 @@
 import React from 'react';
-import NavBar from './NavBar.css';
+import './navBar.css'
 import CartWidget from '../CartWidget/CartWidget';
 
-export const NavBar = () => {
+ const NavBar = () => {
 
   return (
     <div className="App__nav">
-        <img src={logo} alt="logo" className="logo"/>
+       
         <ul className="nav__bar">
-            <li>Mountain Bikes</li>
-            <li>Plegables</li>
-            <li>Electricas</li>
-            <li>Monopatines</li>
+            <li>Inicio</li>
+            <li>Productos</li>
+            <li>Contacto</li>
         </ul>
         <CartWidget />
     </div>
   )
 }
+
+export default NavBar

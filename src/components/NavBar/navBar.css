@@ -7,6 +7,8 @@ a {
   }
   
   .App__nav {
+    background-color: black;
+    color: white;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -59,6 +61,7 @@ a {
     font-size: 20px;
   }
   
+
   .nav__link {
     text-decoration: underline;
   }
@@ -94,3 +97,5 @@ a {
       width: 100;
     }
   }
+
+  

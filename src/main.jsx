@@ -7,7 +7,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    (/* llamada a la función en jsx */)
+    {/* llamada a la función en jsx */}
     <App />
   </React.StrictMode>
 )

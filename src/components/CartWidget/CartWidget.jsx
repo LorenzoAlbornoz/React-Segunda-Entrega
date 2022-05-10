@@ -1,11 +1,7 @@
-import img from '../../imagenes/carrito.svg'
-import { FaBeer } from 'react-icons/fa';
-
 const CartWidget = () => {
     return (
         <>
-            <h3> Lets go for a <FaBeer />? </h3>
-            <img src={img} className="w-25" alt='image' />
+            <h3> <img src="https://res.cloudinary.com/dcwpf7ghu/image/upload/v1651497212/logo_2__preview_rev_1_ffozhj.png" alt="" /></h3>
         </>
     )
 }
