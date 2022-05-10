@@ -20,7 +20,7 @@ export const ItemCount = ({ stock, inicial, onAdd }) => {
   };
 
   //podemos asignarle a onAdd el valor de cuantity y mostrarlo en un console.log
-  const onClick = () => { onAdd = console.log(cuantity) }
+  const onClick = () => { onAdd = console.log('Compraste', (cuantity), 'Unidades') }
 
   return (
     <section className='count'>
@@ -30,6 +30,7 @@ export const ItemCount = ({ stock, inicial, onAdd }) => {
         <li><button type='button' onClick={suma}>+</button></li>
       </ul>
       <button
+      id='button'
         type='submit'
         className='count__button'
         value={cuantity}
@@ -38,5 +39,6 @@ export const ItemCount = ({ stock, inicial, onAdd }) => {
         AGREGAR AL CARRITO
       </button>
     </section>
-  );
+  ); 
 };
+
