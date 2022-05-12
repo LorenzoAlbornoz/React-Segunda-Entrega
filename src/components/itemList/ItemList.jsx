@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Item from '../item/Item'
-import  Productos  from '../../data/catalogo.json'
+import   productList   from '../../data/catalogo.json'
 import './itemList.css'
 
 
 const ItemList = () => {
-
-  const [productos, setProductos] = useState([]);
-
-  const getProductos = new Promise((resolve, reject) => {
+  
+  const [products, setProducts] = useState([]);
+  const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(Productos);
-    }, 3000);
+      resolve(productList);
+    }, 2000);
   });
 
-  const getProductosFromDB = async () => {
+  const getProductsFromDB = async () => {
     try {
-      const resultado = await getProductos;
-      setProductos(resultado);
+      const result = await getProducts;
+      setProducts(result);
     } catch (error) {
       console.log(error);
       alert('No podemos mostrar los productos en este momento');
@@ -25,29 +24,28 @@ const ItemList = () => {
   };
 
   useEffect(() => {
-    getProductosFromDB();
-  }, []);
-
-  //Aca mapeamos items para crear una lista de componentes Item que recibe por props un producto, o sea item => <Item item={item} />
-  //El resultado de ese items.map podemos guardarlo en una constante, por ejemplo const productList = items.map...
+    getProductsFromDB();
+  }, []); 
 
   return (
-
-    <div className='product-list-container'>
+    <div className="product-list-container">
       {
-        productos.length ? (
+ 
+        products.length ? ( 
           <>
             {
-              productos.map((productos) => {
+              
+              products.map((product) => {
+                
                 return (
-                  <div key={productos.id}>
+                  <div key={product.id}>
                     <Item
-                      name={productos.name}
-                      price={productos.price}
-                      description={productos.description}
-                      foto={productos.foto}
-                      categoria={productos.categoria}
-                      stock={productos.stock}
+                      name={product.name}
+                      price={product.price}
+                      description={product.description}
+                      foto={product.foto}
+                      categoria={product.categoria}
+                      stock={product.stock}
                     />
                   </div>
                 );
