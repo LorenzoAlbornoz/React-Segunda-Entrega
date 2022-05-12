@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemList from '../../components/itemList/ItemList';
 
-import './ItemListContainer.css'
+import './itemListContainer.css'
 
 
 const ItemListContainer = () => {

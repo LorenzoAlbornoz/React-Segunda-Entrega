@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Item from '../../components/item/Item'
+import Item from '../item/Item'
 import  Productos  from '../../data/catalogo.json'
 import './itemList.css'
 
@@ -16,7 +16,7 @@ const ItemList = () => {
 
   const getProductosFromDB = async () => {
     try {
-      const result = await getProductos;
+      const resultado = await getProductos;
       setProductos(resultado);
     } catch (error) {
       console.log(error);
