@@ -1,9 +1,21 @@
 import React from 'react'
+import  ItemCount  from '../../components/itemCount/ItemCount'
+import './item.css'
 
-const Item = () => {
+
+const Item = ({id, name, price, description, foto, categoria, stock}) => {
+  const onAdd = (qty) => {
+    alert ('Has agregado ${qty} Fundas');
+  };
   return (
-    <div>Item</div>
-  )
-}
+    <article className='product-card'>
+      <img className='product-card__image' src={foto} alt="" />
+
+      <h3 className='product-card__name'>{name}</h3>
+      <span className='product-card__name'>${price}</span>
+      <ItemCount stock={stock} onAdd={onAdd} initial = {1} />
+    </article>
+  );
+};
 
 export default Item

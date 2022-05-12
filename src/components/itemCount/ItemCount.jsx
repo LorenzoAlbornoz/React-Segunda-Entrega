@@ -1,44 +1,46 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
+
+import './itemCount.css'
 
 
-export const ItemCount = ({ stock, inicial, onAdd }) => {
+const ItemCount = ({ initial, stock, onAdd }) => {
 
-  // desafio clase 4 - Creamos un contador para elegir la cantidad de productos que queremos comprar
+  const [qty, setQty] = useState(initial);
 
-  const [cuantity, setCuantity] = useState(inicial);
-
-  const resta = () => {
-    if (cuantity > 1) {
-      setCuantity(cuantity - 1);
-    }
-  };
-
-  const suma = () => {
-    if (cuantity < stock) {
-      setCuantity(cuantity + 1);
-    }
-  };
-
-  //podemos asignarle a onAdd el valor de cuantity y mostrarlo en un console.log
-  const onClick = () => { onAdd = console.log('Compraste', (cuantity), 'Unidades') }
+const addProductos = (num) => {
+  setQty (qty + num);
+};
 
   return (
-    <section className='count'>
-      <ul className='count__list'>
-        <li><button type='button' onClick={resta}>-</button></li>
-        <li>{cuantity}</li>
-        <li><button type='button' onClick={suma}>+</button></li>
-      </ul>
-      <button
-      id='button'
-        type='submit'
-        className='count__button'
-        value={cuantity}
-        onClick = { onClick }
-      >
-        AGREGAR AL CARRITO
-      </button>
-    </section>
+<div className='count-container'>
+  <div className='count-container__contador'>
+    <button
+    className='count-container__button'
+    onClick={() => addProductos(-1)}
+    disabled={qty=== initial? true: null}
+    >
+-
+    </button>
+    <span className='count-container__qty'>{qty}</span>
+    <button
+    className='count-container__button'
+    onClick={() => addProductos(+1)}
+    disabled={qty=== stock? true: null}>
+      +
+    </button>
+    <div>
+<button
+className='button-primary'
+onClick={() => onAdd(qty)}
+disabled={stock === 0? true:null}>
+  Añadir
+</button>
+    </div>
+  </div>
+</div>
   ); 
 };
+
+export default ItemCount;
 
