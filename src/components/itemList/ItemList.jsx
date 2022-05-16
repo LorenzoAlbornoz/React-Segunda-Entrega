@@ -1,4 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import Item from "../Item/Item"
+
+
+const ItemList = ({ productos }) => {
+  return (
+        productos.map((prod) =>  <Item key={prod.id} prod={prod} />  )
+  )
+}
+
+export default ItemList
+
+/*import React, { useEffect, useState } from 'react'
 import Item from '../item/Item'
 import   productList   from '../../data/catalogo.json'
 import './itemList.css'
@@ -42,9 +53,7 @@ const ItemList = () => {
                     <Item
                       name={product.name}
                       price={product.price}
-                      description={product.description}
                       foto={product.foto}
-                      categoria={product.categoria}
                       stock={product.stock}
                     />
                   </div>
@@ -60,4 +69,4 @@ const ItemList = () => {
   );
 };
 
-export default ItemList;
+export default ItemList;*/
