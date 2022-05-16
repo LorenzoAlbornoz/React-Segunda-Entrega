@@ -9,6 +9,7 @@ const ItemDetail = ({producto}) => {
       <div className="col">
         <h1>{producto.name}</h1>
         <h2>{producto.categoria}</h2>
+        <h3>{producto.description}</h3>
         <p>{producto.price}</p>
       </div>
       {/* <div></div> */}
