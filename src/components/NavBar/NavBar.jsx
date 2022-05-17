@@ -20,7 +20,7 @@ const NavBar = () => {
                 <NavLink 
                     to="/" 
                     // className={ ({isActive}) => isActive ? 'AlgunaClase' : 'otraClase'}
-                >React-Bootstrap</NavLink>
+                >Home</NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
