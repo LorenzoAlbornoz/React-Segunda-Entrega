@@ -9,6 +9,29 @@ const ItemList = ({ productos }) => {
 
 export default ItemList
 
+
+/*import { useContext } from "react"
+import { contextApp } from "../../App"
+import Item from "../Item/Item"
+
+
+function ItemList() {
+  const { prods, saludo } = useContext(contextApp)
+
+  return(
+  <div>
+    {prods.map((prod) => (
+      <>
+      <Item key={prod.id} prod={prod} />
+      <button onClick={saludo}>saludo</button>
+      </>
+    ))}
+  </div>
+  );
+}
+
+export default ItemList*/
+
 /*import React, { useEffect, useState } from 'react'
 import Item from '../item/Item'
 import   productList   from '../../data/catalogo.json'

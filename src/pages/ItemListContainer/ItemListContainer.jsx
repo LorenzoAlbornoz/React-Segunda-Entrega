@@ -14,7 +14,7 @@ const ItemListContainer = ( { saludo='saludo' } ) => {
     useEffect(() => {
         if (id) {
             getFetch()  // fetch llamada a una api  
-            .then(respuesta=> setProductos(respuesta.filter((prods) => prods.categoria === id)))
+            .then(respuesta=> setProductos(respuesta.filter((prod) => prod.categoria === id)))
             .catch((err)=> console.log(err))
             .finally(()=>setLoading(false))                             
         } else {

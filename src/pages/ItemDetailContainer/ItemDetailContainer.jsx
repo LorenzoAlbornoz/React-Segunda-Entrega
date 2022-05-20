@@ -5,13 +5,13 @@ import { getFetch } from '../../helpers/getFetch'
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
-    const { detalleId } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        getFetch(detalleId)  // fetch llamada a una api  
+        getFetch(id)  // fetch llamada a una api  
         .then(respuesta=> setProducto(respuesta))
         .catch((err)=> console.log(err))
-        // .finally(()=>setLoading(false))     
+        .finally(()=>setLoading(false))     
     }, [])
     
     return (
