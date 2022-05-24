@@ -4,7 +4,7 @@ const CartContext = createContext([])
 
 export const userCartContext = () => useContext(CartContext)
 
-const CartContextProvider = ({ Children }) => {
+const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
 
 
@@ -29,7 +29,7 @@ const CartContextProvider = ({ Children }) => {
             addToCart,
             vaciarCarrito
         }} >
-            {Children}
+            {children}
         </CartContext.Provider>
     )
 }

@@ -6,10 +6,12 @@ import { getFetch } from "../../helpers/getFetch"
 
 
 const ItemListContainer = ( { saludo='saludo' } ) => {      
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const { id } = useParams() 
+    const { id } = useParams() ;
+
+    console.log('item list containers');
 
     useEffect(() => {
         if (id) {

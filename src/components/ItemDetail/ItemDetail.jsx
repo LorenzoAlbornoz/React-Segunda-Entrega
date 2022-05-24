@@ -12,7 +12,7 @@ const ItemDetail = ({producto}) => {
   const {addToCart, cartList} = userCartContext()
 
 const onAdd = (cant) =>{
-  Console.log (cant)
+  console.log (cant)
   addToCart({...producto, cantidad: cant})
 }
 

@@ -13,6 +13,8 @@ const array = [
 const NavBar = () => {
     // console.log(children)
 
+    console.log('navbar');
+
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
