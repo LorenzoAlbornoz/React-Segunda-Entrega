@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from 'react'
+import { useEffect, useState} from 'react'
 import { FaBeer } from 'react-icons/fa';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
@@ -41,7 +41,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer saludo={'Productos'} />} />
             <Route path="/categoria/:id" element={<ItemListContainer saludo={'Producto'} />} />
-            <Route path="/detalle/:id" element={<ItemDetailContainer />} />
+            <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
 
 

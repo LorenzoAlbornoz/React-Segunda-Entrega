@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
-import Img from '../../imagenes/carrito.svg'
+import Img from '../../imagenes/cart-shopping-solid.svg'
 
+import React, { useContext } from 'react';
 
 
 const CartWidget = () => {
+
   return (
     <>    
         <Link to='/cart' >
-          <img src={ Img } style={{width: 100}} alt="imagen"/>
+          <img src={ Img } style={{width: 50}}  alt="imagen"/>
         </Link>   
     </>
   )

@@ -11,8 +11,6 @@ const ItemListContainer = ( { saludo='saludo' } ) => {
 
     const { id } = useParams() ;
 
-    console.log('item list containers');
-
     useEffect(() => {
         if (id) {
             getFetch()  // fetch llamada a una api  
