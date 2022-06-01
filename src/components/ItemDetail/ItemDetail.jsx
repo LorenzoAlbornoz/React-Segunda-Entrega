@@ -9,12 +9,14 @@ import ItemCount from "../ItemCount/ItemCount"
 
 
 const ItemDetail = ({producto}) => {
+  const [isItemCount, setIsItemCount] = useState(true)
 
   const {addToCart, cartList} = userCartContext()
 
 const onAdd = (cant) =>{
   console.log (cant)
   addToCart({...producto, cantidad: cant})
+  setIsItemCount(false)
 }
 
 console.log(cartList)
@@ -32,7 +34,20 @@ console.log(cartList)
         {/*<Intercambiabilidad/>
         <Caso2/>*/}
         {/*<button onClick={()=> addToCart(4)}>Agregar al carrito</button>*/}
-        <ItemCount initial={1} stock={5} onAdd={onAdd}/>
+        {isItemCount ? 
+                    <ItemCount initial={1} stock={5} onAdd={onAdd}/> 
+                    :  
+                    <>
+                        <Link to='/'>
+                            <button className="btn btn-outline-primary">Seguir Commprando</button>
+                        </Link>
+                        <Link to='/cart'>
+                            <button className="btn btn-outline-success">Ir al carrito</button>
+                        </Link>
+                    </>
+                }
+
+
       </div>
     </div>
   )
