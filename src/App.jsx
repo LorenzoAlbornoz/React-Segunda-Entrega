@@ -9,25 +9,12 @@ import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './context/CartContex'
+import {ControlledInput, LoadingComponent, TextComponent, TextComponent2, TextComponent3, TextComponent4, TextComponent5, TextComponent6} from './ComponenteEjemplosCondicionales'
 
 function App() {
 
   const [bool, setBool] = useState(true)// function
   const [prods, setProd] = useState([])// function
-
-  // const getFetch = async () =>{
-  //     try {
-  //         const peticion = await fetch('/assets/DataPersonas.json')   
-  //         const peticionParse = JSON.parse(peticion)
-  //         setPersonas(peticionParse)
-  //     } catch (err) {
-  //         console.log(err)
-  //     }
-  // }    
-
-  function saludo(params) {
-    alert("hola soy app")
-  }
 
   //console.log(CartContext)
   return (
@@ -38,7 +25,7 @@ function App() {
       //onClick={saludar}
       >
         <NavBar />
-          <Routes>
+        <Routes>
             <Route path="/" element={<ItemListContainer saludo={'Productos'} />} />
             <Route path="/categoria/:id" element={<ItemListContainer saludo={'Producto'} />} />
             <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
@@ -52,7 +39,6 @@ function App() {
       </div>
       </CartContextProvider>
     </BrowserRouter>
-
   )
 }
 

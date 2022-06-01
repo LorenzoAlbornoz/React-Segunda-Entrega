@@ -11,7 +11,7 @@ const { cartList, vaciarCarrito, precioTotal, removeItem } = userCartContext()
                           </li>
                           <button className="btn btn-outline-primary" onClick={()=>removeItem(producto.id)}> X </button>
                           </div>)}
-<h2>El precio total es: {precioTotal()}</h2>
+<h2>El precio total es: ${precioTotal()}</h2>
 <button onClick={vaciarCarrito}>Vaciar Carrito</button>
       </div>
     )

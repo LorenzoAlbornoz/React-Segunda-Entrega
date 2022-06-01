@@ -12,7 +12,7 @@ const array = [
     {idCategoria: '3', name: 'Vidrios', nameButton: 'Vidrios'},
 ]
 const NavBar = () => {
-const {cantidadTotal } = userCartContext ()
+const { cantidadTotal } = userCartContext ()
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{color:'white'}}>
@@ -35,7 +35,7 @@ const {cantidadTotal } = userCartContext ()
                     </Nav.Link>
                 </Nav> */}
                 </Navbar.Collapse>
-                {cantidadTotal() !== 0 && cantidadTotal}
+                {cantidadTotal() !== 0 && cantidadTotal()}
                 <CartWidget/>
                 </Container>
             </Navbar>           

@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import getFirestoreApp from './firebase/config'
 import './index.css'
 
-// App() js
+getFirestoreApp()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    {/* llamada a la función en jsx */}
     <App />
-  </React.StrictMode>
 )

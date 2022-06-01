@@ -1,16 +1,42 @@
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 import ItemCount from "../../components/ItemCount/ItemCount"
+import {getFirestore, doc, getDoc, collection, getDocs, query, where} from 'firebase/firestore'
 import ItemList from "../../components/ItemList/ItemList"
 import { getFetch } from "../../helpers/getFetch"
 
 
-const ItemListContainer = ( { saludo='saludo' } ) => {      
+const ItemListContainer = () => {      
     const [productos, setProductos] = useState([]);
+    const [producto, setProducto] = useState({});
     const [loading, setLoading] = useState(true);
+
+    const [bool, setBool] = useState(true)
 
     const { id } = useParams() ;
 
+//itemListContainer
+/*useEffect(()=>{
+    const db = getFirestore()
+
+    const queryCollection = collection(db, 'items')
+    /*const queryCollectionFilter = query(queryCollection, where('price', '==', 1000))*/
+/*getDocs(queryCollection)
+.then(resp => setProductos (resp.docs.map(item => ({id: item.id, ...item.data() } ) ))) 
+.catch((err)=> console.log(err))
+.finally(()=>setLoading(false))
+}, [])
+*/
+
+// itemDetailContainer  
+//useEffect(()=>     { 
+//    const db = getFirestore()
+//    const dbQuery = doc(db, 'items', '6tYJ2ZB2Oy6OvOQcHKI9')
+//    getDoc(dbQuery) 
+//    .then(resp => setProducto ( { id: resp.id, ...resp.data() } ) )
+//}, [])
+
+    
     useEffect(() => {
         if (id) {
             getFetch()  // fetch llamada a una api  
@@ -25,11 +51,31 @@ const ItemListContainer = ( { saludo='saludo' } ) => {
         }
     }, [id])
 
-    function onAdd(cant) {
+/*console.log(productos)*/
+
+    
+       //ejemplo de evento
+   const handleClick=(e)=>{
+    e.preventDefault() 
+    setBool(!bool)
+}
+
+const handleAgregar=()=>{
+    setProductos([
+        ...productos,
+        { id: '8', categoria: 'Accesorios', name: 'Cable 2 metro', price: "1500", foto: 'https://res.cloudinary.com/dcwpf7ghu/image/upload/v1652798193/2m_ngmzvw.png', description: 'Este cable tiene un gran funcionamiento y durabilidad, todos sus componentes son testeados y de manera conjunta se verifica que el mismo funcione de manera correcta. Es una gran opción en relación precio calidad, el mismo tiene calidad original y cuenta con garantía ante cualquier falla o inconveniente en el funcionamiento del producto.' }
+    ])
+}
+
+console.log(bool);
+console.log('itemListContainer');
+
+
+    /*function onAdd(cant) {
         console.log(cant)
     }
     
-    console.log(id)
+    console.log(id)*/
 
     
 
@@ -37,7 +83,8 @@ const ItemListContainer = ( { saludo='saludo' } ) => {
     // if (true) else (false) => condition ? tue : false
     return (
         <div>
-            {saludo} 
+            <button onClick={handleClick}>Cambiar estado </button>           
+            <button onClick={handleAgregar}>Agregar Item </button> 
             {/* <ItemCount onAdd={ onAdd  } /> */}
             {/* // [<li key=0>1</li>, <li>2</li>, <li>3</li>, <li>4</li>] */}
             { loading ? 
@@ -48,7 +95,7 @@ const ItemListContainer = ( { saludo='saludo' } ) => {
                 </div>
             }
 
-            <ItemCount initial={1} stock={5} onAdd={onAdd}/>
+
             {/* <button onClick={()=> setBool(!bool)}>click</button>            */}
         </div> 
 
@@ -56,23 +103,3 @@ const ItemListContainer = ( { saludo='saludo' } ) => {
 }
 
 export default ItemListContainer
-
-/*import React from 'react'
-import ItemList from '../../components/itemList/ItemList';
-
-import './itemListContainer.css'
-
-
-const ItemListContainer = () => {
-  return(
-    <section className='item-list-container'>
-      <h2 className='item-list-container__title'>Productos</h2>
-
-      <ItemList/>
-    </section>
-  );
-};
-
-
-
-export default ItemListContainer;*/
