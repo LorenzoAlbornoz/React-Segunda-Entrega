@@ -11,22 +11,29 @@ const ItemListContainer = () => {
     const [producto, setProducto] = useState({});
     const [loading, setLoading] = useState(true);
 
-    const [bool, setBool] = useState(true)
+    /*const [bool, setBool] = useState(true)*/
 
     const { id } = useParams() ;
 
 //itemListContainer
-/*useEffect(()=>{
+useEffect(()=>{
     const db = getFirestore()
-
+ if (id){
     const queryCollection = collection(db, 'items')
-    /*const queryCollectionFilter = query(queryCollection, where('price', '==', 1000))*/
-/*getDocs(queryCollection)
+    const queryCollectionFilter = query(queryCollection, where('categoria', '==', id))
+getDocs(queryCollectionFilter)
 .then(resp => setProductos (resp.docs.map(item => ({id: item.id, ...item.data() } ) ))) 
 .catch((err)=> console.log(err))
 .finally(()=>setLoading(false))
-}, [])
-*/
+ } else {
+const queryCollection = collection (db, 'items')
+getDocs(queryCollection)
+.then(resp => setProductos (resp.docs.map(item => ({id: item.id, ...item.data() } ) ))) 
+.catch((err)=> console.log(err))
+.finally(()=>setLoading(false))
+ }
+}, [id])
+
 
 // itemDetailContainer  
 //useEffect(()=>     { 
@@ -36,7 +43,7 @@ const ItemListContainer = () => {
 //    .then(resp => setProducto ( { id: resp.id, ...resp.data() } ) )
 //}, [])
 
-    
+    /*
     useEffect(() => {
         if (id) {
             getFetch()  // fetch llamada a una api  
@@ -49,11 +56,11 @@ const ItemListContainer = () => {
             .catch((err)=> console.log(err))
             .finally(()=>setLoading(false))                 
         }
-    }, [id])
+    }, [id])*/
 
-/*console.log(productos)*/
+console.log(id)
 
-    
+  /*  
        //ejemplo de evento
    const handleClick=(e)=>{
     e.preventDefault() 
@@ -68,7 +75,7 @@ const handleAgregar=()=>{
 }
 
 console.log(bool);
-console.log('itemListContainer');
+console.log('itemListContainer');*/
 
 
     /*function onAdd(cant) {
@@ -83,8 +90,8 @@ console.log('itemListContainer');
     // if (true) else (false) => condition ? tue : false
     return (
         <div>
-            <button onClick={handleClick}>Cambiar estado </button>           
-            <button onClick={handleAgregar}>Agregar Item </button> 
+            {/*<button onClick={handleClick}>Cambiar estado </button>           
+            <button onClick={handleAgregar}>Agregar Item </button>*/} 
             {/* <ItemCount onAdd={ onAdd  } /> */}
             {/* // [<li key=0>1</li>, <li>2</li>, <li>3</li>, <li>4</li>] */}
             { loading ? 
