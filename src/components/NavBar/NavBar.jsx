@@ -1,4 +1,4 @@
-import { Container,Navbar,NavDropdown,Nav } from 'react-bootstrap'
+import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
 import { userCartContext } from '../../context/CartContex'
 import CartWidget from '../CartWidget/CartWidget'
@@ -7,39 +7,33 @@ import CartWidget from '../CartWidget/CartWidget'
 // import { Nav } from 'react-bootstrap/Nav'
 
 const array = [
-    {idCategoria: '1', name: 'Fundas', nameButton: 'Fundas'},
-    {idCategoria: '2', name: 'Accesorios', nameButton: 'Accesorios'},
-    {idCategoria: '3', name: 'Vidrios', nameButton: 'Vidrios'},
+    { idCategoria: '1', name: 'Fundas', nameButton: 'Fundas' },
+    { idCategoria: '2', name: 'Accesorios', nameButton: 'Accesorios' },
+    { idCategoria: '3', name: 'Vidrios', nameButton: 'Vidrios' },
 ]
 const NavBar = () => {
-const { cantidadTotal } = userCartContext ()
+    const { cantidadTotal } = userCartContext()
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{color:'white'}}>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{ color: 'white' }}>
                 <Container>
-                <NavLink 
-                    to="/" 
-                    // className={ ({isActive}) => isActive ? 'AlgunaClase' : 'otraClase'}
-                >Home</NavLink>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                    {array.map(param => <NavLink key={param.id} to={`/categoria/${param.name}`}>{param.nameButton}</NavLink>) }
-                    {/* <NavLink to='/categoria/remeras'>Remeras</NavLink>
-                    <NavLink to='/categoria/gorras'>Gorras</NavLink>                    */}
-                </Nav>
-                {/* <Nav>
-                    <Nav.Link href="#deets">More deets</Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                    Dank memes
-                    </Nav.Link>
-                </Nav> */}
-                </Navbar.Collapse>
-                {cantidadTotal() !== 0 && cantidadTotal()}
-                <CartWidget/>
+                    <NavLink
+                        to="/"
+
+                    >Home</NavLink>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            {array.map(param => <NavLink key={param.id} to={`/categoria/${param.name}`}>{param.nameButton}</NavLink>)}
+
+                        </Nav>
+                    </Navbar.Collapse>
+                    {cantidadTotal() !== 0 && cantidadTotal()}
+                    <CartWidget />
                 </Container>
-            </Navbar>           
+            </Navbar>
         </>
+
     )
 }
 

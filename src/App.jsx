@@ -43,38 +43,3 @@ function App() {
 }
 
 export default App
-
-
-/*import React, { useEffect, useState } from 'react';
-import './App.css';
-import NavBar from './components/navBar/NavBar'
-import ItemListContainer from './pages/ItemListContainer/ItemListContainer'
-import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer'
-
-function App() {
-  const [boll, setBoll] = useState(true)
-  const[personas, setPersonas] = useState([])
-
-  useEffect(()=>{
-    fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone')
-    .then((respuesta) => respuesta.json())
-    .then((resp) => setPersonas(resp.results))
-    .catch(err => console.log(err))
-  }, [])
-
-  return (
-    <div className="App">
-      <NavBar className="App-header" />
-        {personas.slice(0,10).map((item, id)=>(
-        <li key={id} >{item.title}</li>
-        ))}
-      <div>
-       
-        <ItemListContainer/>
-        <ItemDetailContainer/>
-      </div>
-    </div>
-  );
-}
-
-export default App;*/

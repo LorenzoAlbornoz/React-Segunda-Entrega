@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 import ItemCount from "../../components/ItemCount/ItemCount"
-import {getFirestore, doc, getDoc, collection, getDocs, query, where} from 'firebase/firestore'
+import {getFirestore, doc, getDoc, collection, getDocs, query, where, limit} from 'firebase/firestore'
 import ItemList from "../../components/ItemList/ItemList"
 import { getFetch } from "../../helpers/getFetch"
 
@@ -15,48 +15,18 @@ const ItemListContainer = () => {
 
     const { id } = useParams() ;
 
-//itemListContainer
 useEffect(()=>{
     const db = getFirestore()
- if (id){
     const queryCollection = collection(db, 'items')
-    const queryCollectionFilter = query(queryCollection, where('categoria', '==', id))
+    const queryCollectionFilter = id ? query(queryCollection, where('categoria', '==', id)) : queryCollection
+
 getDocs(queryCollectionFilter)
 .then(resp => setProductos (resp.docs.map(item => ({id: item.id, ...item.data() } ) ))) 
 .catch((err)=> console.log(err))
 .finally(()=>setLoading(false))
- } else {
-const queryCollection = collection (db, 'items')
-getDocs(queryCollection)
-.then(resp => setProductos (resp.docs.map(item => ({id: item.id, ...item.data() } ) ))) 
-.catch((err)=> console.log(err))
-.finally(()=>setLoading(false))
- }
+
 }, [id])
 
-
-// itemDetailContainer  
-//useEffect(()=>     { 
-//    const db = getFirestore()
-//    const dbQuery = doc(db, 'items', '6tYJ2ZB2Oy6OvOQcHKI9')
-//    getDoc(dbQuery) 
-//    .then(resp => setProducto ( { id: resp.id, ...resp.data() } ) )
-//}, [])
-
-    /*
-    useEffect(() => {
-        if (id) {
-            getFetch()  // fetch llamada a una api  
-            .then(respuesta=> setProductos(respuesta.filter((prod) => prod.categoria === id)))
-            .catch((err)=> console.log(err))
-            .finally(()=>setLoading(false))                             
-        } else {
-            getFetch()  // fetch llamada a una api  
-            .then(respuesta=> setProductos(respuesta))
-            .catch((err)=> console.log(err))
-            .finally(()=>setLoading(false))                 
-        }
-    }, [id])*/
 
 console.log(id)
 

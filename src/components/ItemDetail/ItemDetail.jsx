@@ -2,8 +2,11 @@ import Caso1 from "../../../Caso1"
 import Caso2 from "../../../Caso2"
 import { Input } from "../../../input"
 import Intercambiabilidad from "../../../Intercambiabilidad"
+import { useState } from "react"
 import { userCartContext } from "../../context/CartContex"
 import ItemCount from "../ItemCount/ItemCount"
+import { Link } from "react-router-dom"
+import Item from "../Item/Item"
 
 
 
@@ -22,8 +25,8 @@ const onAdd = (cant) =>{
 console.log(cartList)
 
   return (
-    <div className="row" >
-      <div className="col">
+    <div className="row mt-5" >
+    <div className="col mt-5">
         <img className="" src={producto.foto} />
       </div>
       <div className="col">
@@ -31,9 +34,7 @@ console.log(cartList)
         <h2>{producto.categoria}</h2>
         <h3>{producto.descripcion}</h3>
         <p>{producto.price}</p>
-        {/*<Intercambiabilidad/>
-        <Caso2/>*/}
-        {/*<button onClick={()=> addToCart(4)}>Agregar al carrito</button>*/}
+      
         {isItemCount ? 
                     <ItemCount initial={1} stock={5} onAdd={onAdd}/> 
                     :  

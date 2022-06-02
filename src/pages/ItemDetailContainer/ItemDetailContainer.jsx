@@ -8,15 +8,17 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState (true)
     const { detalleId } = useParams()
 
-   /* useEffect(()=>     { 
+    useEffect(()=>     { 
     const db = getFirestore()
-    const dbQuery = doc(db, 'items', '6tYJ2ZB2Oy6OvOQcHKI9')
+    const dbQuery = doc(db, 'items', detalleId)
     getDoc(dbQuery) 
     .then(resp => setProducto ( { id: resp.id, ...resp.data() } ) )
     .catch((err)=> console.log(err))
         .finally(()=>setLoading(false))   
-}, [])*/
+}, [])
 
+
+/*
     useEffect(() => {
         getFetch(detalleId)  // fetch llamada a una api  
         .then(respuesta=> setProducto(respuesta))
@@ -24,7 +26,7 @@ const ItemDetailContainer = () => {
         .finally(()=>setLoading(false))     
     }, [])
 
-    console.log(producto)
+    console.log(producto)*/
     
     return (
         <div>

@@ -1,8 +1,22 @@
+import { memo } from "react"
+import Item from "../Item/Item"
+
+// memo(componente), memo(commponente, fn)
+const ItemList = memo(
+  ( { productos } ) => {
+    console.log('ItemList')
+    return (
+          productos.map((prod) =>  <Item key={prod.id} prod={prod} />  )
+    )
+  }, (oldProps, newProps) => oldProps.productos.length === newProps.productos.length
+)
+
+export default ItemList
+
+
 /*import {useState, memo} from 'react'
 import Item from '../Item/Item'
 
-
-// memo(()=>{}, arg2)
 const ItemList =memo(({items}) =>{                 
        
                console.log('item list')
@@ -16,11 +30,11 @@ const ItemList =memo(({items}) =>{
                )
        }
 , (oldProps, newProps)=> oldProps.items.length === newProps.items.length )
+*/
 
 
-
-
-export default ItemList*/
+/*
+export default ItemList
 
 
 import Item from "../Item/Item"

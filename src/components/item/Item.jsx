@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 
 const Item = ( {prod} ) => {
-    // console.log(prod)
+    console.log('Item')
   return (
       <div            
             className='col-md-4'                                                
