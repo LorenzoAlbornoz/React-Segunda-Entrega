@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
-import ItemCount from "../../components/ItemCount/ItemCount"
-import {getFirestore, doc, getDoc, collection, getDocs, query, where, limit} from 'firebase/firestore'
+import {getFirestore, collection, getDocs, query, where} from 'firebase/firestore'
+
 import ItemList from "../../components/ItemList/ItemList"
-import { getFetch } from "../../helpers/getFetch"
 
 
 const ItemListContainer = () => {      
@@ -54,16 +53,12 @@ console.log('itemListContainer');*/
     
     console.log(id)*/
 
-    
 
-    //onAdd(counter) 
-    // if (true) else (false) => condition ? tue : false
     return (
         <div>
             {/*<button onClick={handleClick}>Cambiar estado </button>           
             <button onClick={handleAgregar}>Agregar Item </button>*/} 
-            {/* <ItemCount onAdd={ onAdd  } /> */}
-            {/* // [<li key=0>1</li>, <li>2</li>, <li>3</li>, <li>4</li>] */}
+
             { loading ? 
                 <h2>Cargando...</h2> 
                 : 
@@ -71,9 +66,6 @@ console.log('itemListContainer');*/
                     <ItemList productos={productos} /> 
                 </div>
             }
-
-
-            {/* <button onClick={()=> setBool(!bool)}>click</button>            */}
         </div> 
 
     )

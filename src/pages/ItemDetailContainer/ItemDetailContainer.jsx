@@ -1,7 +1,9 @@
+import { getFirestore, getDoc, doc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
-import { getFetch } from '../../helpers/getFetch'
+
+
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
@@ -16,17 +18,6 @@ const ItemDetailContainer = () => {
     .catch((err)=> console.log(err))
         .finally(()=>setLoading(false))   
 }, [])
-
-
-/*
-    useEffect(() => {
-        getFetch(detalleId)  // fetch llamada a una api  
-        .then(respuesta=> setProducto(respuesta))
-        .catch((err)=> console.log(err))
-        .finally(()=>setLoading(false))     
-    }, [])
-
-    console.log(producto)*/
     
     return (
         <div>
@@ -34,7 +25,4 @@ const ItemDetailContainer = () => {
         </div>
     )
 }
-// FechOne
-//         .then(resp => setProducto(resp))
-//         .catch(err => console.error(err))
 export default ItemDetailContainer

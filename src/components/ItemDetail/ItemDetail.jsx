@@ -1,20 +1,16 @@
-import Caso1 from "../../../Caso1"
-import Caso2 from "../../../Caso2"
-import { Input } from "../../../input"
-import Intercambiabilidad from "../../../Intercambiabilidad"
 import { useState } from "react"
-import { userCartContext } from "../../context/CartContex"
-import ItemCount from "../ItemCount/ItemCount"
+import { useCartContext } from "../../context/CartContex"
 import { Link } from "react-router-dom"
-import Item from "../Item/Item"
 
+import Item from "../Item/Item"
+import ItemCount from "../ItemCount/ItemCount"
 
 
 
 const ItemDetail = ({producto}) => {
   const [isItemCount, setIsItemCount] = useState(true)
 
-  const {addToCart, cartList} = userCartContext()
+  const {addToCart, cartList} = useCartContext()
 
 const onAdd = (cant) =>{
   console.log (cant)
@@ -29,7 +25,7 @@ console.log(cartList)
     <div className="col mt-5">
         <img className="" src={producto.foto} />
       </div>
-      <div className="col">
+      <div className="col mt-5">
         <h1>{producto.name}</h1>
         <h2>{producto.categoria}</h2>
         <h3>{producto.descripcion}</h3>
@@ -40,7 +36,7 @@ console.log(cartList)
                     :  
                     <>
                         <Link to='/'>
-                            <button className="btn btn-outline-primary">Seguir Commprando</button>
+                            <button className="btn btn-outline-primary">Seguir Comprando</button>
                         </Link>
                         <Link to='/cart'>
                             <button className="btn btn-outline-success">Ir al carrito</button>

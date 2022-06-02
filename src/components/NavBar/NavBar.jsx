@@ -1,6 +1,6 @@
-import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap'
-import { Link, NavLink } from 'react-router-dom'
-import { userCartContext } from '../../context/CartContex'
+import { Container, Navbar,  Nav } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
+import { useCartContext } from '../../context/CartContex'
 import CartWidget from '../CartWidget/CartWidget'
 // import { Navbar } from 'react-bootstrap/Navbar'
 // import { NavDropdown } from 'react-bootstrap/NavDropdown'
@@ -12,7 +12,7 @@ const array = [
     { idCategoria: '3', name: 'Vidrios', nameButton: 'Vidrios' },
 ]
 const NavBar = () => {
-    const { cantidadTotal } = userCartContext()
+    const { cantidadTotal } = useCartContext()
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{ color: 'white' }}>
