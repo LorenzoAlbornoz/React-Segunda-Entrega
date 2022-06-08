@@ -2,9 +2,7 @@ import { Container, Navbar,  Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContex'
 import CartWidget from '../CartWidget/CartWidget'
-// import { Navbar } from 'react-bootstrap/Navbar'
-// import { NavDropdown } from 'react-bootstrap/NavDropdown'
-// import { Nav } from 'react-bootstrap/Nav'
+
 
 const array = [
     { idCategoria: '1', name: 'Fundas', nameButton: 'Fundas' },
@@ -38,23 +36,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-/*import React from 'react';
-import './navBar.css'
-import CartWidget from '../CartWidget/CartWidget';
-
- const NavBar = () => {
-
-  return (
-    <div className="App__nav">
-       
-        <ul className="nav__bar">
-            <li>Inicio</li>
-            <li>Productos</li>
-            <li>Contacto</li>
-        </ul>
-        <CartWidget />
-    </div>
-  )
-}
-
-export default NavBar*/
