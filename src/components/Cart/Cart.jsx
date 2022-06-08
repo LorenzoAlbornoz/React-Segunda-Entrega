@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, documentId, getDocs, getFirestore, query, updateDoc, where, writeBatch } from "firebase/firestore"
+import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContex"
@@ -19,12 +19,10 @@ const Cart = () => {
           const id = cartItem.id
           const nombre = cartItem.name
           const precio = cartItem.price * cartItem.cantidad
-          // const cantidad = cartItem.cantidad
           
           return {id, nombre, precio}   
       })   
       
-      // crear
       const db = getFirestore()
       const queryCollection = collection(db, 'orders')
       addDoc(queryCollection, orden)
@@ -32,21 +30,11 @@ const Cart = () => {
       .catch(err => console.log(err))
       .finally(()=> vaciarCarrito())
 
-      // update
-      // const queryItem = doc(db, 'items', 'rpioxMaGa8IRMoftfzJU')
-
-      // updateDoc( queryItem, {
-      //     stock: 100
-      // })
-      // .then(() => console.log('terminada'))
-
-
-      // actualizar el stock
       const queryCollectionStock = collection(db, 'items')
 
       const queryActulizarStock = await query(
-          queryCollectionStock, //                   ['jlksjfdgl','asljdfks'] -> ejemplo del map ,  
-          where( documentId() , 'in', cartList.map(it => it.id) ) // in es que estén en ..         
+          queryCollectionStock, //                   
+          where( documentId() , 'in', cartList.map(it => it.id) )        
       )
 
       const batch = writeBatch(db)
@@ -90,7 +78,6 @@ const Cart = () => {
                                               </div>)}
                   <h2>El precio total es: {precioTotal()}</h2>
                   <button onClick={vaciarCarrito} className='btn btn-outline-danger'>Vaciar carrito</button>
-                  {/* <button onClick={generarOrden} className='btn btn-outline-danger'>Ralizar compra</button> */}
                  
               </>
           }
