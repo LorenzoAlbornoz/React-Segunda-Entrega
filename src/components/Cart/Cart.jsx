@@ -32,8 +32,8 @@ const Cart = () => {
 
       const queryCollectionStock = collection(db, 'items')
 
-      const queryActulizarStock = await query(
-          queryCollectionStock, //                   
+      const queryActulizarStock = query(
+          queryCollectionStock,                 
           where( documentId() , 'in', cartList.map(it => it.id) )        
       )
 
