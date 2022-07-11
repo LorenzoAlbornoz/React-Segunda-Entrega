@@ -6,5 +6,5 @@ npm install
 
 # correr app
 ```bash
-npm run vite
+npm run dev
 ```
